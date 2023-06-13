@@ -45,6 +45,7 @@ body {
 
 #title span {
     background: -webkit-linear-gradient(white, #38495A);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -77,12 +78,12 @@ body {
 /* https://codepen.io/alphardex/pen/vYEYGzp */
 .button {
 
-    /* --border-width: 3px; */
+    --border-width: 3px;
 
     position: relative;
     /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
     width: 300px;
     height: 100px;
     font-family: Lato, sans-serif;
@@ -90,44 +91,42 @@ body {
     text-transform: uppercase;
     color: white;
     background: #222;
-    /* border-radius: var(--border-width); */
-    border-radius: 10px;
-    border-color: blue;
+    border-color: white;
     border-style: solid;
+    border-radius: var(--border-width);
 }
-    /* &::after {
-        content: "";
-        top: calc(-1 * var(--border-width));
-        left: calc(-1 * var(--border-width));
-        z-index: -1;
-        width: calc(100% + var(--border-width) * 2);
-        height: calc(100% + var(--border-width) * 2);
-        background: linear-gradient(
-        60deg,
-        hsl(224, 85%, 66%),
-        hsl(269, 85%, 66%),
-        hsl(314, 85%, 66%),
-        hsl(359, 85%, 66%),
-        hsl(44, 85%, 66%),
-        hsl(89, 85%, 66%),
-        hsl(134, 85%, 66%),
-        hsl(179, 85%, 66%)
-        );
-        background-size: 300% 300%;
-        background-position: 0 50%;
-        border-radius: calc(2 * var(--border-width));
-        animation: moveGradient 4s alternate infinite;
-    }
+
+/* What I believe this does, is create a new background with the rainbow transition,
+    and shrinks the og background */
+.button:hover::after{
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
 }
-  
+
 @keyframes moveGradient {
 50% {
     background-position: 100% 50%;
 }
-} */
-
-.button:hover {
-    border-color: white;
 }
 
 
