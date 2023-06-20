@@ -58,21 +58,6 @@ body {
     padding-left: 10px;
 }
 
-/* div="button" */
-/* #button {
-    position: absolute;
-    top: 45%;
-    left: 0;
-    right: 0;
-    color: #FFFFFF;
-    text-align: center;
-    font-family: Lato;
-    font-weight: 300;
-    font-size: 50px;
-    letter-spacing: 10px;
-    margin-top: -60px;
-    padding-left: 10px;
-} */
 
 /* button class="button" */
 /* https://codepen.io/alphardex/pen/vYEYGzp */
@@ -94,6 +79,37 @@ body {
     border-color: white;
     border-style: solid;
     border-radius: var(--border-width);
+}
+
+#blog {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    background:white;
+    border: white;
+    border-radius: 5px;
+    color: black;
+    padding: 20px;
+}
+
+#post {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    background:#eeeeee;
+    color: black;
+    border: white;
+    border-radius: 5px;
+    padding: 20px;
+
+    height: 240px;
+}
+
+img {
+    border-radius: 8px;
+    width: 200px;
+    height: 200px;
+    float: right;
 }
 
 /* What I believe this does, is create a new background with the rainbow transition,
@@ -128,8 +144,6 @@ body {
     background-position: 100% 50%;
 }
 }
-
-
 
 /* Find wawy to bump icon down */
 .button_icon {

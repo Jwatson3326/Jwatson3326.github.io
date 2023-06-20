@@ -1,3 +1,9 @@
+function loadCSS (cssText) {
+    var styleSheet = document.createElement("style")
+    styleSheet.innerText = cssText
+    document.head.appendChild(styleSheet)
+}
+
 function loadStars () {
     //stars support up to 8k resolution
     const vw = 3840
@@ -50,10 +56,15 @@ function loadStars () {
     loadCSS(stars3)
 }
 
-function loadCSS (cssText) {
-    var styleSheet = document.createElement("style")
-    styleSheet.innerText = cssText
-    document.head.appendChild(styleSheet)
+function sizeBlog () {
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    vw = vw - 200
+
+    blogSpace = `#blog {`
+    blogSpace = blogSpace + `width: ` + vw + `px;}`;
+    console.log(blogSpace)
+    loadCSS(blogSpace)
 }
 
 document.addEventListener("DOMContentLoaded", loadStars)
+document.addEventListener("DOMContentLoaded", sizeBlog)
