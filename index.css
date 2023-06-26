@@ -85,10 +85,10 @@ body {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-    background:white;
+    background:rgba(255,255,255,0);
     border: white;
     border-radius: 5px;
-    color: black;
+    color: white;
     padding: 20px;
 }
 
@@ -96,17 +96,44 @@ body {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-    background:#eeeeee;
-    color: black;
+    background:#222;
+    color: white;
     border: white;
     border-radius: 5px;
     padding: 20px;
 
-    height: 240px;
+    height: auto;
 }
 
-img {
-    border-radius: 8px;
+.blog-title{
+    font-size: 30;
+}
+
+.blog-desc{
+    font-size: 18;
+}
+
+.blog-date{
+    font-size: 12;
+}
+
+.blog-link{
+    text-decoration: none;
+    cursor: pointer;
+    color: crimson;
+}
+
+.blog-link:hover{
+    color: hotpink;
+}
+
+a:link {
+    text-decoration: none!important;
+}
+
+.blog-img{
+    border: 3px solid white;
+    border-radius: 3px;
     width: 200px;
     height: 200px;
     float: right;

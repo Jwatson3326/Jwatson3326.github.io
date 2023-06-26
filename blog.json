@@ -1,0 +1,22 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "pog",
+            "description": "pog2",
+            "content": "full article goes here",
+            "date": "69/69/1969",
+            "img": "github.png",
+            "tags": "lol"
+        },
+        {
+            "id": 2,
+            "title": "Kentucky Fried Chicken",
+            "description": "bawk bawk",
+            "content": "irrelevant",
+            "date": "70/69/1969",
+            "img": "twitter.png",
+            "tags": "lol2"
+        }
+    ]
+}

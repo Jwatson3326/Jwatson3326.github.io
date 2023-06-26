@@ -7,18 +7,18 @@ function loadCSS (cssText) {
 function loadStars () {
     //stars support up to 8k resolution
     const vw = 3840
-    const vh = 2160
-    stars1 = `#stars {
+    const vh = 3840
+    var stars1 = `#stars {
     width: 1px;
     height: 1px;
     background: transparent;
     box-shadow: `
-    stars2 = `#stars2 {
+    var stars2 = `#stars2 {
     width: 2px;
     height: 2px;
     background: transparent;
     box-shadow: `
-    stars3 = `#stars3 {
+    var stars3 = `#stars3 {
     width: 3px;
     height: 2px;
     background: transparent;
@@ -57,14 +57,39 @@ function loadStars () {
 }
 
 function sizeBlog () {
-    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    vw = vw - 200
+    var vw = 0.0;
+    vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    vw = vw * (0.9 - ((vw/1080) * 0.1))
+    console.log(vw)
 
-    blogSpace = `#blog {`
+    var blogSpace = `#blog {`;
     blogSpace = blogSpace + `width: ` + vw + `px;}`;
     console.log(blogSpace)
     loadCSS(blogSpace)
 }
 
+async function displayBlog () {
+    const postSpace = document.getElementById('postSpace')
+    var response = await fetch('./blog.json')
+    var blogData = Object.values(JSON.parse(await response.text()))
+
+    var postList = ''
+    console.log(blogData.length)
+    for (const posts of blogData){
+        for (let i = 0; i < blogData.length + 1; i++) {
+            console.log(posts[i]["title"])
+            var post = '<div id="post"> <img class="blog-img" src="/imgs/'+ posts[i]["img"] +'"> <p class="blog-title">'+ posts[i]["title"] +'</p> <p class="blog-desc">'+ posts[i]["description"] +'</p> <a href = "https://www.youtube.com/watch?v=LMaG_uOa440"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ posts[i]["date"] +'</p> </div>'
+            postList += post  + '<br>'
+        }
+    }
+    console.log(postList)
+    postSpace.innerHTML = postList
+}
+
+function displayPost () {
+
+}
+
 document.addEventListener("DOMContentLoaded", loadStars)
 document.addEventListener("DOMContentLoaded", sizeBlog)
+document.addEventListener("DOMContentLoaded", displayBlog)
