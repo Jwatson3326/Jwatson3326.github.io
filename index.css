@@ -100,9 +100,8 @@ body {
     color: white;
     border: white;
     border-radius: 5px;
-    padding: 20px;
 
-    height: auto;
+    height: 200px;
 }
 
 .blog-title{
@@ -132,11 +131,35 @@ a:link {
 }
 
 .blog-img{
-    border: 3px solid white;
-    border-radius: 3px;
+    border-radius: 5px 0px 0px 5px;
     width: 200px;
     height: 200px;
-    float: right;
+    float: left;
+    margin-right: 20px;
+}
+
+#blogSpace {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    color: #FFFFFF;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    background:#222;
+    border: white;
+    border-radius: 5px;
+    color: white;
+    padding: 20px;
+}
+
+#blogContent {
+    background: #eee;
+    border: white;
+    border-radius: 5px;
+    color: black;
+    padding: 20px
 }
 
 /* What I believe this does, is create a new background with the rainbow transition,

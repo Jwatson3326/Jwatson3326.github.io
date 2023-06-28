@@ -58,15 +58,26 @@
           <p class="blog-title">Blog:</p>
 
           <div id="postSpace">pog</div>
-
-          <div id="post">
-            <img class="blog-img" src="/imgs/Ramen.jpg">
-            <p class="blog-title">My personal website!</p>
-            <p class="blog-desc">Recently I decided to make my own website, and with this site I wanted to achieve two main goals:<br> - To link to my social media pages <br> - And to serve as a blog space for personal projects I plan on doing</p>
-            <a href = "https://www.youtube.com/watch?v=LMaG_uOa440"><p class="blog-link">> Click here to find out more!!!!</p></a>
-            <p class="blog-date">20/06/2023</p>
-          </div>
         </div>
+      
+        <script>
+          async function displayBlog () {
+          const postSpace = document.getElementById('postSpace')
+          var response = await fetch('./blog.json')
+          var blogData = Object.values(JSON.parse(await response.text()))
+
+          var postList = ''
+          for (const posts of blogData){
+              for (let i = 0; i < blogData.length + 1; i++) {
+                  console.log(posts[i]["title"])
+                  var post = '<div id="post"> <img class="blog-img" src="/imgs/'+ posts[i]["img"] +'"> <p class="blog-title">'+ posts[i]["title"] +'</p> <p class="blog-desc">'+ posts[i]["description"] +'</p> <a href = "blog.html#'+ posts[i]["id"] +'"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ posts[i]["date"] +'</p> </div>'
+                  postList += post  + '<br>'
+              }
+          }
+          postSpace.innerHTML = postList
+        }
+        document.addEventListener("DOMContentLoaded", displayBlog)
+        </script>
       </div>
     </section>
 

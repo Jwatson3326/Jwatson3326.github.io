@@ -1,19 +1,17 @@
 {
     "posts": [
         {
-            "id": 1,
-            "title": "pog",
-            "description": "pog2",
-            "content": "full article goes here",
+            "id": "my-website",
+            "title": "My personal Website",
+            "description": "Recently I decided to make my own website, and with this site I wanted to achieve two main goals:<br>- To link to my social media pages nd to serve as a blog space for personal projects I plan on doing",
             "date": "69/69/1969",
-            "img": "github.png",
+            "img": "Ramen.jpg",
             "tags": "lol"
         },
         {
-            "id": 2,
+            "id": "test-article-2",
             "title": "Kentucky Fried Chicken",
             "description": "bawk bawk",
-            "content": "irrelevant",
             "date": "70/69/1969",
             "img": "twitter.png",
             "tags": "lol2"

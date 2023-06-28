@@ -60,36 +60,12 @@ function sizeBlog () {
     var vw = 0.0;
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     vw = vw * (0.9 - ((vw/1080) * 0.1))
-    console.log(vw)
 
-    var blogSpace = `#blog {`;
-    blogSpace = blogSpace + `width: ` + vw + `px;}`;
-    console.log(blogSpace)
+    var blogSpace = `#blog {width: ` + vw + `px;}`;
     loadCSS(blogSpace)
-}
-
-async function displayBlog () {
-    const postSpace = document.getElementById('postSpace')
-    var response = await fetch('./blog.json')
-    var blogData = Object.values(JSON.parse(await response.text()))
-
-    var postList = ''
-    console.log(blogData.length)
-    for (const posts of blogData){
-        for (let i = 0; i < blogData.length + 1; i++) {
-            console.log(posts[i]["title"])
-            var post = '<div id="post"> <img class="blog-img" src="/imgs/'+ posts[i]["img"] +'"> <p class="blog-title">'+ posts[i]["title"] +'</p> <p class="blog-desc">'+ posts[i]["description"] +'</p> <a href = "https://www.youtube.com/watch?v=LMaG_uOa440"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ posts[i]["date"] +'</p> </div>'
-            postList += post  + '<br>'
-        }
-    }
-    console.log(postList)
-    postSpace.innerHTML = postList
-}
-
-function displayPost () {
-
+    var blogSpace2 = `#blogSpace {width: ` + vw + `px;}`;
+    loadCSS(blogSpace2)
 }
 
 document.addEventListener("DOMContentLoaded", loadStars)
 document.addEventListener("DOMContentLoaded", sizeBlog)
-document.addEventListener("DOMContentLoaded", displayBlog)
