@@ -57,15 +57,62 @@ function loadStars () {
 }
 
 function sizeBlog () {
+    console.log("pog")
     var vw = 0.0;
     vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    vw = vw * (0.9 - ((vw/1080) * 0.1))
+    var blogSize = vw * (0.9 - ((vw/1080) * 0.1))
 
-    var blogSpace = `#blog {width: ` + vw + `px;}`;
+    var blogSpace = `#blog {width: ` + blogSize + `px;}`;
     loadCSS(blogSpace)
-    var blogSpace2 = `#blogSpace {width: ` + vw + `px;}`;
+    var blogSpace2 = `#blogSpace {width: ` + blogSize + `px;}`;
     loadCSS(blogSpace2)
+
+    if (vw < 500) {
+        var imageSize = '.blog-img {width: 100%; height: '+blogSize+'; border-radius: 5px 5px 0px 0px;}'
+        loadCSS(imageSize)
+    }
+    if (vw > 500) {
+        var imageSize = '.blog-img {width: 200px; height: 200px; border-radius: 5px 0px 5px 0px;}'
+        loadCSS(imageSize)
+    }
 }
 
-document.addEventListener("DOMContentLoaded", loadStars)
+async function displayBlog () {
+    if (document.URL.includes("blog.html")) {
+        var currentUrl = (window.location.href).split('#');
+        const postSpace = document.getElementById('blogContent')
+        var response = ""
+        try{
+            response = await fetch('./posts/'+currentUrl[1]+'.md')
+        }
+        catch (err) {
+            response = "Oops, looks like there's been an issue, have an <a href='https://www.youtube.com/watch?v=ESx_hy1n7HA'>awesome song</a> to compensate"
+        }
+        postSpace.innerHTML = await response.text();
+    }
+    else {
+        const postSpace = document.getElementById('postSpace')
+        var response = await fetch('./blog.json')
+        var blogData = Object.values(JSON.parse(await response.text()))
+
+        var postList = ''
+        for (const posts of blogData){
+            for (let i = 0; i < blogData.length + 1; i++) {
+                console.log(posts[i]["title"])
+                var post = '<div id="post"> <img class="blog-img" src="/imgs/'+ posts[i]["img"] +'"> <p class="blog-title">'+ posts[i]["title"] +'</p> <p class="blog-desc">'+ posts[i]["description"] +'</p> <a href = "blog.html#'+ posts[i]["id"] +'"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ posts[i]["date"] +'</p> </div>'
+                postList += post  + '<br>'
+            }
+        }
+        postSpace.innerHTML = postList
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", displayBlog)
 document.addEventListener("DOMContentLoaded", sizeBlog)
+document.addEventListener("DOMContentLoaded", loadStars)
+var timeout = false;
+window.addEventListener("resize", function () {
+    clearTimeout(timeout)
+    timeout = this.setTimeout(sizeBlog, 200)
+})
