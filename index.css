@@ -101,7 +101,8 @@ body {
     border: white;
     border-radius: 5px;
 
-    height: 200px;
+    min-height: 200px;
+    height: auto;
 }
 
 .blog-title{

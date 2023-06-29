@@ -8,7 +8,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
       <link rel="icon" type="image/x-icon" href="../imgs/github.png">
     </head>
-  <body onresize="sizeBlog()">
+  <body>
     <section class="wrapper">
         <div id="stars"></div>
         <div id="stars2"></div>
@@ -19,22 +19,6 @@
             <div id="blogContent">
                 Loading... (maybe)
             </div>
-            <script>
-                // var converter = new showdown.Converter();
-                async function getBlog() {
-                    var currentUrl = (window.location.href).split('#');
-                    const postSpace = document.getElementById('blogContent')
-                    var response = ""
-                    try{
-                        response = await fetch('./posts/'+currentUrl[1]+'.md')
-                    }
-                    catch (err) {
-                        response = "Oops, looks like there's been an issue, have an <a href='https://www.youtube.com/watch?v=ESx_hy1n7HA'>awesome song</a> to compensate"
-                    }
-                    postSpace.innerHTML = await response.text();
-                }
-                getBlog();
-            </script>
         </div>
         
     </section>

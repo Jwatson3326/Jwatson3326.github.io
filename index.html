@@ -8,7 +8,8 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
       <link rel="icon" type="image/x-icon" href="../imgs/github.png">
     </head>
-  <body onresize="sizeBlog()">
+  <!-- <body onresize="sizeBlog()"> -->
+  <body>
     <section class="wrapper">
       <div id="stars"></div>
       <div id="stars2"></div>
@@ -59,25 +60,6 @@
 
           <div id="postSpace">pog</div>
         </div>
-      
-        <script>
-          async function displayBlog () {
-          const postSpace = document.getElementById('postSpace')
-          var response = await fetch('./blog.json')
-          var blogData = Object.values(JSON.parse(await response.text()))
-
-          var postList = ''
-          for (const posts of blogData){
-              for (let i = 0; i < blogData.length + 1; i++) {
-                  console.log(posts[i]["title"])
-                  var post = '<div id="post"> <img class="blog-img" src="/imgs/'+ posts[i]["img"] +'"> <p class="blog-title">'+ posts[i]["title"] +'</p> <p class="blog-desc">'+ posts[i]["description"] +'</p> <a href = "blog.html#'+ posts[i]["id"] +'"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ posts[i]["date"] +'</p> </div>'
-                  postList += post  + '<br>'
-              }
-          }
-          postSpace.innerHTML = postList
-        }
-        document.addEventListener("DOMContentLoaded", displayBlog)
-        </script>
       </div>
     </section>
 
