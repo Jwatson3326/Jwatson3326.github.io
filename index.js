@@ -71,12 +71,24 @@ function sizeBlog () {
         var imageSize = '.blog-img {width: 100%; height: '+blogSize+'; border-radius: 5px 5px 0px 0px;}'
         loadCSS(imageSize)
     }
-    if (vw > 500) {
+    else{
         var imageSize = '.blog-img {width: 200px; height: 200px; border-radius: 5px 0px 5px 0px;}'
         loadCSS(imageSize)
     }
+    if (vw < 700) {
+        var imageSize = '.post-img {width: '+blogSize*0.75+'; height: 100%; border-radius: 5px 0px 5px 0px;}'
+        loadCSS(imageSize)
+    }
+    else {
+        var imageSize = '.post-img {width: '+blogSize*0.5+'; height: 100%; border-radius: 5px 0px 5px 0px;}'
+        loadCSS(imageSize)
+    }
+    
+    
 }
 
+
+var currentSort = "date"
 async function displayBlog () {
     if (document.URL.includes("blog.html")) {
         var currentUrl = (window.location.href).split('#');
@@ -95,11 +107,31 @@ async function displayBlog () {
         var response = await fetch('./blog.json')
         var blogData = Object.values(JSON.parse(await response.text()))
 
+        let postDataSet = [[]];
+
         var postList = ''
         for (const posts of blogData){
             for (let i = 0; i < blogData.length + 1; i++) {
                 console.log(posts[i]["title"])
-                var post = '<div id="post"> <img class="blog-img" src="/imgs/'+ posts[i]["img"] +'"> <p class="blog-title">'+ posts[i]["title"] +'</p> <p class="blog-desc">'+ posts[i]["description"] +'</p> <a href = "blog.html#'+ posts[i]["id"] +'"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ posts[i]["date"] +'</p> </div>'
+                var postData = [posts[i]["title"], posts[i]["img"], posts[i]["description"], posts[i]["id"], posts[i]["date"]]
+                postDataSet[i] = postData
+            }
+
+            if (currentSort = "date"){
+                postDataSet.sort(sortFunction)
+            }
+
+            function sortFunction(a,b) {
+                if (a[4] === b[4]) {
+                    return 0;
+                }
+                else {
+                    return (a[4] < b[4]) ? -1 : 1;
+                }
+            }
+
+            for (const dataNum in postDataSet){
+                var post = '<div id="post"> <img class="blog-img" src="'+ postDataSet[dataNum][1] +'"> <p class="blog-title">'+ postDataSet[dataNum][0] +'</p> <p class="blog-desc">'+ postDataSet[dataNum][2]+'</p> <a href = "blog.html#'+ postDataSet[dataNum][3] +'"><p class="blog-link">> Click here to find out more!!!!</p></a> <p class="blog-date">'+ postDataSet[dataNum][4] +'</p> </div>'
                 postList += post  + '<br>'
             }
         }
