@@ -83,8 +83,6 @@ function sizeBlog () {
         var imageSize = '.post-img {width: '+blogSize*0.5+'; height: 100%; border-radius: 5px 0px 5px 0px;}'
         loadCSS(imageSize)
     }
-    
-    
 }
 
 
@@ -111,14 +109,14 @@ async function displayBlog () {
 
         var postList = ''
         for (const posts of blogData){
-            for (let i = 0; i < blogData.length + 1; i++) {
+            for (let i = 0; i < blogData[0].length; i++) {
                 console.log(posts[i]["title"])
                 var postData = [posts[i]["title"], posts[i]["img"], posts[i]["description"], posts[i]["id"], posts[i]["date"]]
                 postDataSet[i] = postData
             }
 
             if (currentSort = "date"){
-                postDataSet.sort(sortFunction)
+                postDataSet.sort(sortFunction).reverse()
             }
 
             function sortFunction(a,b) {

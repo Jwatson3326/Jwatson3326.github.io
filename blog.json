@@ -1,35 +1,35 @@
 {
     "posts": [
         {
-            "id": "my-website",
-            "title": "My Website",
-            "description": "Recently I decided to make my own website, and with this site I wanted to achieve two main goals:<br>- To link to my social media pages and<br>- To serve as a blog space for personal projects I plan on doing",
-            "date": "30/06/2023",
-            "img": "https://media.discordapp.net/attachments/420243169343701014/1125804849083199619/Website.jpg?width=676&height=676",
+            "id": "cryptopals-1",
+            "title": "My Journey into Cryptography",
+            "description": "I've recently been getting into codes and cryptography, looking and encoding and decoding messages, and wanted to write down my thoughts and what I've been doing",
+            "date": "2023/08/02",
+            "img": "https://cdn.discordapp.com/attachments/420243169343701014/1136370036567715850/Cryptography.jpg",
             "tags": "project"
         },
         {
             "id": "kindle-screensaver-1",
             "title": "Custom Kindle Screensaver Hack",
             "description": "This week I attempt to  install a custom screensaver hack onto my old kindle",
-            "date": "04/07/2023",
+            "date": "2023/07/04",
             "img": "https://cdn.discordapp.com/attachments/420243169343701014/1125805435149111478/20230701_100044.jpg",
             "tags": "project"
         },
         {
-            "id": "kindle-screensaver-2",
-            "title": "POG1",
-            "description": "This week I attempt to  install a custom screensaver hack onto my old kindle",
-            "date": "15/07/2023",
-            "img": "https://cdn.discordapp.com/attachments/420243169343701014/1125805435149111478/20230701_100044.jpg",
+            "id": "AI-modern",
+            "title": "A look into AI",
+            "description": "AI has been all the rage recently, but with me soon to look at it in university next year, I wanted to get a head start and do a little research into AI from the ground up",
+            "date": "2023/07/22",
+            "img": "https://cdn.discordapp.com/attachments/420243169343701014/1136371193721651250/Blade_Runner.jpg",
             "tags": "project"
         },
         {
-            "id": "kindle-screensaver-3",
-            "title": "POG2",
-            "description": "This week I attempt to  install a custom screensaver hack onto my old kindle",
-            "date": "30/07/2023",
-            "img": "https://cdn.discordapp.com/attachments/420243169343701014/1125805435149111478/20230701_100044.jpg",
+            "id": "my-website",
+            "title": "My Website",
+            "description": "Recently I decided to make my own website, and with this site I wanted to achieve two main goals:<br>- To link to my social media pages and<br>- To serve as a blog space for personal projects I plan on doing",
+            "date": "2023/06/30",
+            "img": "https://media.discordapp.net/attachments/420243169343701014/1125804849083199619/Website.jpg?width=676&height=676",
             "tags": "project"
         }
     ]
